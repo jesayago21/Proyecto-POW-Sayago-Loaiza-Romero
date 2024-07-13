@@ -34,7 +34,8 @@ $EnviarUser.addEventListener('click', (evt) => {
   socket.on('connect', () => {
     $onlineStatus.classList.remove('hidden');
     $offlineStatus.classList.add('hidden');
-  
+    $messageInput.disabled = false;
+    $messageInput.placeholder = "Escribe tu mensaje aquí";
     $username.textContent = UsuarioTxt;
     $lastSeen.innerHTML = getLastSeen();
     $isconnect = "";
@@ -60,24 +61,30 @@ const renderUsers = (users) => {
   });
 };
 const renderMessage = (payload) => {
-
   let ModUser = payload.name.split('**');  
-      if(ModUser[1] ==  "0" || ModUser[1] ==  "1" ){
-  const { id, message, name } = payload;
-console.log(payload);
-$tipoUser = message[1];
-console.log($tipoUser);
-
-  const $divElement = document.createElement('div');
-  $divElement.classList.add('message');
-
-  if (id !== socket.id) {
-      $divElement.classList.add('incoming');
-  }
+  if (payload.message[0] == "**END**" && payload.message[1] == socket.id){
+   
+      localStorage.removeItem('name');
+      socket.close();
+      $onlineStatus.classList.add('hidden');
+      $offlineStatus.classList.remove('hidden');
+      $messageInput.disabled = true;
+      $messageInput.placeholder = "Usted ha sido desconectado";
+     
   
-  $divElement.innerHTML = `<small>${ModUser[0]}</small><p>${message[0]}</p>`;
-  $chatElement.appendChild($divElement);
-}
+  }else if((ModUser[1] ==  "0" || ModUser[1] ==  "1") && (payload.message[1] == socket.id || payload.message[2] == socket.id )){
+    const { id, message, name } = payload;
+    $tipoUser = message[1];
+    const $divElement = document.createElement('div');
+    $divElement.classList.add('message');
+
+    if (id !== socket.id) {
+        $divElement.classList.add('incoming');
+    }
+  
+    $divElement.innerHTML = `${ModUser[0]}<small><p>${message[0]}</p></small>`;
+    $chatElement.appendChild($divElement);
+  }
   // Scroll al final de los mensajes...
   $chatElement.scrollTop = $chatElement.scrollHeight;
 };
@@ -88,7 +95,7 @@ $chatForm.addEventListener('submit', (evt) => {
   const message = $messageInput.value;
   $messageInput.value = '';
 
-  socket.emit('send-message', message,"1");
+  socket.emit('send-message', message,socket.id);
 });
 
 /*socket.on('disconnect', () => {
@@ -107,7 +114,8 @@ $disconnectBtn.addEventListener('click', (evt) => {
   evt.preventDefault();
   localStorage.removeItem('name');
   socket.close();
-  window.location.replace('websockets.html');
+  $onlineStatus.classList.add('hidden');
+  $offlineStatus.classList.remove('hidden');
 }); 
 function getLastSeen() {
   // Obtener la fecha actual

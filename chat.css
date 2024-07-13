@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap');
 
-
+#chat-log{
+    margin-top: 60px;
+}
 .information-bubble {
     margin-left: 20px;
 }
@@ -11,6 +13,35 @@
 #status-offline {
     color: red;
     
+}
+#name{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#enviarName-btn{
+    border: none;
+    background-color: #73b983;
+    color: #1c1a1a;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+#enviarName-btn:hover{
+    opacity: 0.5;
+}
+
+#disconnect-btn{
+    border: none;
+    background-color: #422424;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#disconnect-btn:hover{
+    opacity: 0.5;
 }
 
 .form input {
@@ -29,8 +60,10 @@
 }
 .bottom-right {
     position: absolute;
+    top: 35%;
     bottom: 0;
     right: 100px;
+    margin-bottom: 20px;
 }
 
 .pic {

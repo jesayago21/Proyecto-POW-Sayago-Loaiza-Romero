@@ -3,14 +3,25 @@
   <head>
     <title>Chat</title>
     <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <header>
+      <div class="header">
+          <div class="nombre">
+              <h1>
+                  Cinex Unidos
+              </h1>
+          </div>
+          
+      </div>
+  </header>
     <div id="chat-log"></div>
     <div class="information-bubble">
-        <h3>Estado del chat:
+        <h2>Estado del chat:
           <small class="hidden" id="status-online">online</small>
           <small class="hidden" id="status-offline">offline</small>
-        </h3>
+        </h2S>
 
         
   <input placeholder="Escribe tu nombre aquí" type="text"   id="name" />
@@ -55,14 +66,14 @@
 
       <!-- Inputs y Forms -->
       <form class="input">
-        <input placeholder="Escribe tu mensaje aquí" type="text" id = "msg"/>
+        <input placeholder="Aun no esta conectado a la lista de espera" type="text" id = "msg"  disabled/>
         <i class="fas fa-paper-plane"></i>
       </form>
 
     </div>
   </div>
     
-        <button id="disconnect-btn" type="submit">Cerrar sesión</button>
+        <button id="disconnect-btn" type="submit" onclick="location.href='Seleccion de Butacas.html'">Cerrar sesión</button>
       </div>
     
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>   

@@ -34,59 +34,193 @@
     color: #fff;
     padding: 20px;
     text-align: center;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+  }
+  header .header{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  header .nombre{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
   }
   
   header h1 {
     font-size: 24px;
     margin: 0;
   }
+  .sidebar{
+    width: 50px;
+    height: 100%;
+    background-color: #1c1a1a;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 84px;
+  }
+
+  .menu-icono{
+    color:#fffccc;
+    font-size: 30px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+
+  .modo-oscuro{
+    background-color: #fffccc;
+    width: 40px;
+    height: 20px;
+    border-radius: 30px;
+    justify-content: flex-end;
+    margin-left: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  .modo-icono{
+    color: goldenrod;
+  }
+
   
+  .boton{
+    width: 18px;
+    height: 18px;
+    background-color: #1c1a1a;
+    position: absolute;
+    right: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .menu-icono:hover{
+    transform: scale(1.2);
+  }
+
+  .container{
+    background-color: #151515;
+    color: #1c1a1a;
+    margin-left: 50px;
+    min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
+    padding-bottom: 20px;
+  }
+
+  .contenido{
+    color: #fffccc;
+  }
+
+  .encabezado{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+    padding: 50px;
+  }
+
+  .descripcion{
+    margin-left: 20%;
+    text-align: right;
+    width: auto;
+
+  }
+
+  .contenedor-peliculas{
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  .titulo-peliculas{
+    margin-bottom: 20px;
+  }
+
+  .lista-peliculas{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .item-peliculas{
+    width: 300px;
+  }
+ .item-peliculas:hover .lista-peliculas-img-item{
+  transform: scale(1.02);
+ }
+
+ .titulo-pelicula{
+  padding: 0 10px;
+  font-size: 25px;
+  font-weight: bold;
+ }
+
+  .lista-peliculas-img-item{
+    width: 300px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 10px; 
+  }
   .interfaz-principal {
     max-width: 800px;
-    margin: 100px auto 40px auto;
+    margin: 50px auto 40px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #1c1a1a;
+    color: #fffccc;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
   .interfaz-cine {
+    display: none;
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #1c1a1a;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .interfaz-sala {
+    display: none;
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #1c1a1a;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
   }
   
   /* Table Styles */
   
   .tabla {
     width: 100%;
-    border-collapse: collapse;
+    color: #fffccc;
   }
   
   .tabla th,.tabla td {
     border: 1px solid #ddd;
+    border-radius: 2px;
     padding: 10px;
     text-align: left;
   }
   
   .tabla th {
     background-color: #f0f0f0;
+    color: #1c1a1a;
   }
   
   .tabla-partidas {
@@ -96,7 +230,13 @@
   .tabla-salas {
     margin-bottom: 20px;
   }
-  
+  #cine-seleccionado{
+    color: #fffccc;
+  }
+  #sala-seleccionada{
+    color: #fffccc;
+  }
+
   /* Seat Styles */
   
   .asiento {
@@ -129,9 +269,11 @@
   }
   h3{
     text-align: center;
+    color:#fffccc;
   }
   .textos-salas{
     display: none;
+    color:#fffccc;
   }
   .show-card {
     border: 1px solid #ccc;
@@ -143,9 +285,10 @@
     flex-direction: column;
     width: 200px;
     height: 380px;
+    color: #fffccc;
   }
   .show-card:hover {
-    background-color: #f0f0f0;
+    opacity: 0.4;
   }
   #showtimes-container{
     display: flex;
@@ -181,7 +324,7 @@
     height: 250px;
   }
   .cine-card:hover {
-    background-color: #f0f0f0;
+    opacity: 0.4;
   }
   .cine-image{
     width: 100%;
@@ -200,4 +343,115 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+  }
+  .container.active{
+    background-color: #fffccc;
+  }
+
+  header.active {
+    background-color: wheat;
+    color: #1c1a1a;
+  }
+
+  .sidebar.active{
+    background-color: wheat;
+  }
+
+  .menu-icono.active{
+    color: #1c1a1a;
+  }
+
+  .modo-oscuro.active{
+    background-color: #1c1a1a;
+  }
+
+  .boton.active{
+    background-color: #fffccc;
+    transform: translateX(-20px);
+  }
+
+  .contenedor-peliculas.active{
+    color: #1c1a1a;
+  }
+
+  .interfaz-principal.active{
+    background-color: #fff;
+    color: #1c1a1a;
+  }
+
+  .interfaz-cine.active{
+    background-color: #fff;
+    color: #1c1a1a;
+  }
+
+  .interfaz-sala.active{
+    background-color: #fff;
+    color: #1c1a1a;
+  }
+
+  footer{
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .boton-soporte{
+    background-color: #fffccc;
+    color: #1c1a1a;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  .boton-soporte:hover{
+    opacity: 0.4;
+  }
+  .login-container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    background-color: #fffccc;
+    color: #1c1a1a;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  form input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #6f6b6b;
+    color: #1c1a1a;
+  }
+  #btn-iniciar-sesion{
+    background-color: #1c1a1a;
+    color: #fffccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #btn-iniciar-sesion:hover{
+    opacity: 0.4;
+  }
+  .btnVolver{
+    background-color: #1c1a1a;
+    color: #fffccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btnVolver:hover{
+    opacity: 0.4;
   }

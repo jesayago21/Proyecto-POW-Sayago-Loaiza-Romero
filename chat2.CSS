@@ -1,6 +1,32 @@
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap');
 
+#disconnect-btn{
+    border: none;
+    background-color: #422424;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#disconnect-btn:hover{
+    opacity: 0.5;
+}
 
+#EndChat-btn{
+    border: none;
+    background-color: #422424;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#EndChat-btn:hover{
+    opacity: 0.5;
+}
+
+#chat-log{
+    margin-top: 60px;
+}
 .information-bubble {
     margin-left: 20px;
 }
@@ -29,8 +55,10 @@
 }
 .bottom-right {
     position: absolute;
+    top: 35%;
     bottom: 0;
     right: 100px;
+    margin-bottom: 20px;
 }
 
 .pic {

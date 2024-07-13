@@ -16,41 +16,108 @@ JESUS ROMERO
 <body>
     <script src="script.js"></script>
     <header>
-        <h1>
-            Cinex Unidos
-        </h1>
+        <div class="header">
+            <div class="nombre">
+                <h1>
+                    Cinex Unidos
+                </h1>
+            </div>
+            
+        </div>
     </header>
-    <!-- Muestra los Cines -->
-    <div class="interfaz-principal" id="interfaz-principal">
-        <h3>Cines Disponibles</h3>
-        <br>
-        <div id="cines-disponibles">
-            <script>
-                getCines();
-            </script>
-        </div>
+
+    <div class="sidebar">
+        <i class="fa-solid fa-house menu-icono"></i>
+        <i class="fa-solid fa-ticket menu-icono"></i>
     </div>
-    <!-- Cine es especifico -->
-    <div class="interfaz-cine" id="interfaz-cine">
-        <h2 id="cine-seleccionado"></h2>
-        <br>
-        <h3>Salas Disponibles</h3>
-        <br>
-        <div id="salas-disponibles">
-        </div>
-    </div>
-    <!-- Sala es especifica -->
-    <div class="interfaz-sala" id="interfaz-sala">
-        <h2 id="sala-seleccionada"></h2>
-        <br>
-        <h4 class="textos-salas">Funciones</h4><br>
-        <div id="showtimes-container"></div>
-        <br>
-        <h3 class="textos-salas">Asientos Disponibles</h3>
-        <br><br>
-        <div id="asientos-disponibles">
+
+
+    <div class="container">
+        <div class="contenido">
+            <div class="encabezado" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('imagenes/headerintensamente2.jpg');">
+                <p class="descripcion">Intensamente 2, de Disney y Pixar, vuelve a la mente de Riley, una adolescente recién llegada, justo cuando el cuartel general está siendo demolido repentinamente para hacer sitio a algo totalmente inesperado nuevas emociones Alegría, Tristeza, Ira, Miedo y Asco, que durante mucho tiempo han dirigido una exitosa operación según todos los indicios, no están seguros de cómo sentirse cuando aparece Ansiedad. Y parece que no está sola.”</p>
+            </div>
+            <div class="contenedor-peliculas">
+                <h1 class="titulo-peliculas">PELICULAS</h1>
+                <div class="lista-peliculas">
+                    <div class="item-peliculas">
+                        <img class="lista-peliculas-img-item" src="https://cinexunidos-production.up.railway.app/assets/posters/intensa-mente-2.jpg" alt=""> 
+                        <span class="titulo-pelicula">Intensamente 2</span>  
+                        <p class="descripcion-pelicula">nuevas emociones Alegría, Tristeza, Ira, Miedo y Asco, que durante mucho tiempo han dirigido una exitosa operación según todos los indicios, no están seguros de cómo sentirse cuando aparece Ansiedad. Y parece que no está sola.</p>   
+                    </div>
+                    <div class="item-peliculas">
+                        <img class="lista-peliculas-img-item" src="https://cinexunidos-production.up.railway.app/assets/posters/bad_boys-hasta_la_muerte.jpg" alt=""> 
+                        <span class="titulo-pelicula">Bad boys</span>  
+                        <p class="descripcion-pelicula">Los “Bad Boys” favoritos del mundo regresan con su icónica mezcla de acción al límite y comedia delirante, pero esta vez con un inesperado giro los mejores de Miami están huyendo.</p>   
+                    </div>
+                    <div class="item-peliculas">
+                        <img class="lista-peliculas-img-item" src="https://cinexunidos-production.up.railway.app/assets/posters/mi_villano_favorito-4.jpg" alt=""> 
+                        <span class="titulo-pelicula">Mi villano favorito 4</span>  
+                        <p class="descripcion-pelicula">Gru, Lucy, Margo, Edith y Agnes dan la bienvenida a un nuevo miembro de la familia, Gru Jr., que se empeña en atormentar a su padre. Gru tiene una nueva némesis, Maxime Le Mal, y su novia Valentina, y la familia se ve obligada a huir.</p>   
+                    </div>
+                    <div class="item-peliculas">
+                        <img class="lista-peliculas-img-item" src="https://cinexunidos-production.up.railway.app/assets/posters/un_lugar_en_silencio.jpg" alt=""> 
+                        <span class="titulo-pelicula">Un lugar en silencio</span>  
+                        <p class="descripcion-pelicula">Una mujer trata de sobrevivir durante un ataque alienígena en la ciudad de Nueva York. Tras unirse a otro grupo de supervivientes, el grupo se da cuenta de que deben mantenerse totalmente en silencio, dado que los cazan cuando emiten ruidos.</p>   
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-    
+        <div class="inicio-peliculas" id="inicio-peliculas"></div>
+        <!-- Muestra los Cines -->
+        <div class="interfaz-principal" id="interfaz-principal" style="display: none;">
+            <h3>Cines Disponibles</h3>
+            <br>
+            <div id="cines-disponibles">
+                <script>
+                    getCines();
+                </script>
+            </div>
+        </div>
+        <!-- Cine es especifico -->
+        <div class="interfaz-cine" id="interfaz-cine">
+            <h2 id="cine-seleccionado"></h2>
+            <br>
+            <h3>Salas Disponibles</h3>
+            <br>
+            <div id="salas-disponibles"></div>
+        </div>
+        <!-- Sala es especifica -->
+        <div class="interfaz-sala" id="interfaz-sala">
+            <h2 id="sala-seleccionada"></h2>
+            <br>
+            <h4 class="textos-salas">Funciones</h4><br>
+            <div id="showtimes-container"></div>
+            <br>
+            <h3 class="textos-salas">Asientos Disponibles</h3>
+            <br><br>
+            <div id="asientos-disponibles"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="footer-texto">
+                <p>© 2021 Cinex Unidos</p>
+            </div>
+            <div class="boton-soporte-container">
+                <button class="boton-soporte" onclick="location.href='Cliente.html'">Chat con Soporte</button>
+                <button class="boton-soporte" onclick="mostrarLogin()">Entrar como Soporte</button>
+            </div>
+        </div>
+        <!-- login -->
+         <div class="login-container" id="login">
+            <br>
+            <h2>Iniciar Sesión</h2>
+            <form>
+                <input type="text" placeholder="Usuario" id="user">
+                <input type="password" placeholder="Contraseña" id="password">
+                <button type="button" id="btn-iniciar-sesion" onclick="iniciarSesion()">Iniciar Sesión</button>
+                <button class="btnVolver" onclick="cerrarLogin()">Volver</button>
+            </form>
+         </div>
+    </footer>
+    <script src="modo-oscuro.js"></script>
 </body>
 </html>

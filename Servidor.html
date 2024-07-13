@@ -2,17 +2,28 @@
 <html>
   <head>
     <title>Chat</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chat2.css">
   </head>
   <body>
+    <header>
+      <div class="header">
+          <div class="nombre">
+              <h1>
+                  Cinex Unidos
+              </h1>
+          </div>
+          
+      </div>
+  </header>
     <div id="chat-log"></div>
     <div class="information-bubble">
-        <h3>Estado del chat:
+        <h2>Estado del chat:
           <small class="hidden" id="status-online">online</small>
           <small class="hidden" id="status-offline">offline</small>
-        </h3>
+        </h2>
     
-        <h3>Personas conectadas</h3>
+        <h2>Personas conectadas</h2>
         <ul id="users-list"></ul>
 
         <!-- Ubicación del chat -->
@@ -58,8 +69,8 @@
 
     </div>
   </div>
-    
-        <button id="disconnect-btn" type="submit">Cerrar sesión</button>
+        <br>
+        <button id="disconnect-btn" type="submit" onclick="location.href='Seleccion de Butacas.html'">Cerrar sesión</button>
         <button id="EndChat-btn" type="submit">terminar Chat</button>
       </div>
     

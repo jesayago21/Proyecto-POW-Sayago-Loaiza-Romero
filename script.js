@@ -51,6 +51,10 @@ function getCines() {
                     textosSalas.forEach(texto => {
                         texto.style.display = "none";
                     });
+                    const interfazCine = document.querySelectorAll(".interfaz-cine");
+                    interfazCine.forEach(interfaz => {  
+                        interfaz.style.display = "block";
+                    });
                     const cineSeleccionado = document.getElementById("cine-seleccionado");
                     cineSeleccionado.textContent = cine.name;
                     idCine = cine.id;
@@ -67,7 +71,6 @@ function getCines() {
         console.error('There was a problem with the fetch operation:', error);
     });
 }
-
 function getCineEspecifico(idCine){
     fetch(`${apiToken}/theatres/${idCine}/auditoriums`, {
         method: "GET",
@@ -124,6 +127,10 @@ function getCineEspecifico(idCine){
                     textosSalas = document.querySelectorAll(".textos-salas");
                     textosSalas.forEach(texto => {
                         texto.style.display = "block";
+                    });
+                    const interfazSala = document.querySelectorAll(".interfaz-sala");
+                    interfazSala.forEach(interfaz => {  
+                        interfaz.style.display = "block";
                     });
                     fetch(`${apiToken}/theatres/${idCine}/auditoriums/${sala.id}`)
                         .then(response => response.json())
@@ -374,4 +381,21 @@ function crearFuncion(selectedShow) {
     .catch(error => console.error(error));
 
 }
+function mostrarLogin(){
+    document.getElementById("login").style.display = "block";
+}
+function cerrarLogin(){
+    document.getElementById("login").style.display = "none";
+}
 
+function iniciarSesion(){
+    const user = document.getElementById("user").value;
+    const password = document.getElementById("password").value;
+
+    if (user === "admin" && password === "admin123") {
+        document.getElementById("login").style.display = "none";
+        location.href = "Servidor.html";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+}

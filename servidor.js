@@ -17,14 +17,13 @@ let $tipoUser = "";
 const socket = io('https://cinexunidos-production.up.railway.app',{
   auth: {
       token: 'ABC-4561', // Se debería sustituir por un token real...
-      name: "soporte**1",
+      name: "Soporte**1",
   },
 });
 
 socket.on('connect', () => {
   $onlineStatus.classList.remove('hidden');
   $offlineStatus.classList.add('hidden');
-
   $username.textContent = username;
   $lastSeen.innerHTML = getLastSeen();
 
@@ -32,17 +31,16 @@ socket.on('connect', () => {
 });
 
 const renderUsers = (users) => {
-  let listaUsuarios = [];
   $usersList.innerHTML = '';
   users.forEach((user) => {
-      const $li = document.createElement('li');
+      
       let ModUser = user.name.split('**');
    
       if(ModUser[1] ==  "0" ){
-      $li.textContent = ModUser[0];
-      $usersList.appendChild($li);
-      listaUsuarios.push(ModUser[0],user.id)
-      console.log(listaUsuarios);
+        const $li = document.createElement('li');
+        $li.appendChild(document.createTextNode(ModUser[0]));
+        $li.setAttribute("value", user.id); // added line
+        $usersList.appendChild($li);      
     }
   });
 };
@@ -72,10 +70,13 @@ console.log($tipoUser);
 $chatForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
+  console.log($usersList.firstElementChild.getAttribute('value'));
+  
   const message = $messageInput.value;
   $messageInput.value = '';
 
-  socket.emit('send-message', message,"1");
+  socket.emit('send-message', message, $usersList.firstElementChild.getAttribute('value'));
+
 });
 
 socket.on('disconnect', () => {
@@ -91,16 +92,17 @@ socket.on('new-message', renderMessage);
 
 $disconnectBtn.addEventListener('click', (evt) => {
   evt.preventDefault();
+  $onlineStatus.classList.add('hidden');
+  $offlineStatus.classList.remove('hidden');
   localStorage.removeItem('name');
   socket.close();
-  window.location.replace('websockets.html');
 }); 
 
 
 
 $EndChatBtn.addEventListener('click', (evt) => {
  
-  socket.emit('send-message', "**END**","1"); // agregar ID del usuario al q se le envia el mensaje
+  socket.emit('send-message', "**END**", $usersList.firstElementChild.getAttribute('value')); // agregar ID del usuario al q se le envia el mensaje
   $usersList.removeChild($usersList.firstElementChild);
 }); 
 
