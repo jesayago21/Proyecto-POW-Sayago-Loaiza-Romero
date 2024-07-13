@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asientos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- 
+JESUS SAYAGO
+LUIS LOAIZA
+JESUS ROMERO    
+-->
+
+</head>
+<body>
+    <script src="script.js"></script>
+    <header>
+        <h1>
+            Cinex Unidos
+        </h1>
+    </header>
+    <!-- Muestra los Cines -->
+    <div class="interfaz-principal" id="interfaz-principal">
+        <h3>Cines Disponibles</h3>
+        <br>
+        <div id="cines-disponibles">
+            <script>
+                getCines();
+            </script>
+        </div>
+    </div>
+    <!-- Cine es especifico -->
+    <div class="interfaz-cine" id="interfaz-cine">
+        <h2 id="cine-seleccionado"></h2>
+        <br>
+        <h3>Salas Disponibles</h3>
+        <br>
+        <div id="salas-disponibles">
+        </div>
+    </div>
+    <!-- Sala es especifica -->
+    <div class="interfaz-sala" id="interfaz-sala">
+        <h2 id="sala-seleccionada"></h2>
+        <br>
+        <h4 class="textos-salas">Funciones</h4><br>
+        <div id="showtimes-container"></div>
+        <br>
+        <h3 class="textos-salas">Asientos Disponibles</h3>
+        <br><br>
+        <div id="asientos-disponibles">
+        </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="chat2.css">
+  </head>
+  <body>
+    <div id="chat-log"></div>
+    <div class="information-bubble">
+        <h3>Estado del chat:
+          <small class="hidden" id="status-online">online</small>
+          <small class="hidden" id="status-offline">offline</small>
+        </h3>
+    
+        <h3>Personas conectadas</h3>
+        <ul id="users-list"></ul>
+
+        <!-- Ubicación del chat -->
+  <div class="bottom-right">
+    <!-- Chat -->
+    <div class="chat">
+      <!-- Información del contacto -->
+      <div class="contact bar">
+        <div class="pic" id="username-pic"></div>
+        <div class="name" id="username"></div>
+        <div class="seen" id="last-seen">Hoy a las 12:56</div>
+      </div>
+
+      <div class="messages" id="chat">
+
+        <div style="display:none;">
+          <div class="time">
+            Hoy a las 11:41
+          </div>
+
+          <div class="message incoming">
+            Oh, ¿cuál es su problema? 🤔
+          </div>
+
+          <div class="message">
+            Me robaron mi butaca de la función cine 😡
+          </div>
+        </div>
+
+        <!-- Burbujas mientras escribe -->
+        <div class="message" style="display: none;">
+          <div class="typing typing-1"></div>
+          <div class="typing typing-2"></div>
+          <div class="typing typing-3"></div>
+        </div>
+      </div>
+
+      <!-- Inputs y Forms -->
+      <form class="input">
+        <input placeholder="Escribe tu mensaje aquí" type="text" />
+        <i class="fas fa-paper-plane"></i>
+      </form>
+
+    </div>
+  </div>
+    
+        <button id="disconnect-btn" type="submit">Cerrar sesión</button>
+        <button id="EndChat-btn" type="submit">terminar Chat</button>
+      </div>
+    
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>   
+    <script src="servidor.js"></script>
+
+</body>
+</html>
